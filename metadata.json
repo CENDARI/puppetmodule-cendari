@@ -1,0 +1,23 @@
+{
+  "name": "cendari-cendari",
+  "version": "0.0.1",
+  "author": "CENDARI",
+  "summary": "CENDARI puppet config",
+  "license": "Apache-2.0",
+  "source": "https://github.com/CENDARI/puppetmodule-cendari.git",
+  "project_page": "http://www.cendari.eu/",
+  "issues_url": "https://github.com/CENDARI/puppetmodule-cendari/issues",
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "14.04"
+      ]
+    }
+  ],
+  "dependencies": [
+    {"name":"puppetlabs-concat","version_requirement":">= 1.1.1"},
+    {"name":"puppetlabs-stdlib","version_requirement":">= 4.3.2"},
+  ]
+}
+
