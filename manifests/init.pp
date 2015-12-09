@@ -28,14 +28,20 @@ class cendari (
 
   case $variant {
     default,'cendariinabox': {
-      include 'cendari::components::atom'
-      include 'cendari::components::docs'
+      Anchor['cendari::begin'] ->
+      class { 'cendari::components::atom': } ->
+      class { 'cendari::components::docs': } ->
+      Anchor['cendari::end']
     }
     'frontoffice': {
-      include 'cendari::components::docs'
+      Anchor['cendari::begin'] ->
+      class { 'cendari::components::docs': } ->
+      Anchor['cendari::end']
     }
     'backofice': {
-      include 'cendari::components::atom'
+      Anchor['cendari::begin'] ->
+      class { 'cendari::components::atom': } ->
+      Anchor['cendari::end']
     }
   }
   

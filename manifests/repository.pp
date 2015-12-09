@@ -5,7 +5,7 @@ class cendari::repository inherits cendari {
   # add ubuntu repository if on trusty (repo doesn't have other distros)
   if $::osfamily == 'Debian' {
     if $::lsbdistcodename == 'trusty' {
-      apt::source { 'cendari_ubunturepository':
+      apt::source { 'cendari_deb_repository':
         comment           => 'CENDARI repository',
         location          => $::cendari::repo_url,
         release           => $::lsbdistcodename,
@@ -20,7 +20,7 @@ class cendari::repository inherits cendari {
       exec {'update_cendari_deb_repository':
         path    => ['/usr/bin','/bin'],
         command =>  'apt-get update -o Dir::Etc::sourcelist="sources.list.d/cendari_ubunturepository.list" -o Dir::Etc::sourceparts="-" -o APT::Get::List-Cleanup="0"',
-        cwd     => '/opt/cendari-server',
+        cwd     => '/tmp',
         user    => 'root',
         group   => 'root',
         require => Apt::Source['cendari_deb_repository'],
