@@ -1,0 +1,35 @@
+<?php
+
+// FILE MANAGED BY PUPPET
+
+//configuration file which contains external links, usernames and passwords
+//predefined variables
+
+//atom address
+$atom_url='<%= scope.lookupvar('::cendari::atom_url') %>';
+
+//atom user
+$email='<%= scope.lookupvar('::cendari::atom_ckansync_user_email') %>';
+$password='<%= scope.lookupvar('::cendari::atom_ckansync_user_password') %>';
+
+//ckan address
+$ckan_url='<%= scope.lookupvar('::cendari::atom_ckansync_ckan_url') %>/dataset/';
+
+//ckan user private key
+$ckan_api_key='<%= scope.lookupvar('::cendari::atom_ckanuser_apikey') %>';
+
+//ckan api address
+$ckan_api_url='<%= scope.lookupvar('::cendari::atom_ckansync_ckan_url') %>/api/3/action/';
+
+//mysql database
+$mysql_database='<%= scope.lookupvar('::cendari::atom_mysql_db') %>';
+
+//mysql user
+$mysql_user='<%= scope.lookupvar('::cendari::atom_mysql_user') %>';
+$mysql_password='<%= scope.lookupvar('::cendari::atom_mysql_password') %>';
+
+// email address for mail report
+$mail_report_to='<%= scope.lookupvar('::cendari::atom_mail_report_to') %>';
+
+?>
+

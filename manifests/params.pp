@@ -10,5 +10,19 @@ class cendari::params {
   $repo_key_id    = '041262CC36856E7787436790D914C5D73034679B'
   $variant        = 'cendariinabox'
 
+  $atom_url                    = undef
+  $atom_mysql_db               = 'atom2'
+  $atom_mysql_user             = 'atom2'
+  $atom_mysql_password         = undef
+  $atom_ckanuser_name          = undef
+  $atom_ckanuser_apikey        = undef
+  $atom_dataspace_name         = undef
+  $atom_dataspace_id           = undef
+  $atom_ckansync_user_email    = undef
+  $atom_ckansync_user_password = undef
+  $atom_ckansync_ckan_url      = undef
+  $atom_mail_report_to         = 'root@localhost'
+
+
 }
 

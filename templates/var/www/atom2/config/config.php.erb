@@ -1,0 +1,74 @@
+<?php
+// sfInstall::configureDatabase()
+//
+///////////////////////
+// MANAGED BY PUPPET //
+///////////////////////
+//
+
+return array (
+  'all' => 
+  array (
+    'propel' => 
+    array (
+      'class' => 'sfPropelDatabase',
+      'param' => 
+      array (
+        'encoding' => 'utf8',
+        'persistent' => true,
+        'pooling' => true,
+        'dsn' => 'mysql:dbname=<%= scope.lookupvar('::cendari::atom_mysql_db') %>;port=3306',
+        'username' => '<%= scope.lookupvar('::cendari::atom_mysql_user') %>',
+        'password' => '<%= scope.lookupvar('::cendari::atom_mysql_password') %>',
+      ),
+    ),
+  ),
+  'dev' => 
+  array (
+    'propel' => 
+    array (
+      'param' => 
+      array (
+        'classname' => 'DebugPDO',
+        'debug' => 
+        array (
+          'realmemoryusage' => true,
+          'details' => 
+          array (
+            'time' => 
+            array (
+              'enabled' => true,
+            ),
+            'slow' => 
+            array (
+              'enabled' => true,
+              'threshold' => 0.10000000000000001,
+            ),
+            'mem' => 
+            array (
+              'enabled' => true,
+            ),
+            'mempeak' => 
+            array (
+              'enabled' => true,
+            ),
+            'memdelta' => 
+            array (
+              'enabled' => true,
+            ),
+          ),
+        ),
+      ),
+    ),
+  ),
+  'test' => 
+  array (
+    'propel' => 
+    array (
+      'param' => 
+      array (
+        'classname' => 'DebugPDO',
+      ),
+    ),
+  ),
+);
