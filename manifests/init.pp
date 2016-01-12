@@ -43,7 +43,11 @@ class cendari (
     default,'cendariinabox': {
       Anchor['cendari::begin'] ->
       class { 'cendari::components::atom': } ->
+      class { 'cendari::components::ckan': } ->
       class { 'cendari::components::docs': } ->
+      class { 'cendari::components::litef': } ->
+      class { 'cendari::components::notes': } ->
+      class { 'cendari::components::pineapple': } ->
       Anchor['cendari::end']
     }
     'frontoffice': {
