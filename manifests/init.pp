@@ -55,7 +55,7 @@ class cendari (
       class { 'cendari::components::docs': } ->
       Anchor['cendari::end']
     }
-    'backofice': {
+    'backoffice': {
       Anchor['cendari::begin'] ->
       class { 'cendari::components::atom': } ->
       Anchor['cendari::end']
