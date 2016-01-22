@@ -21,6 +21,19 @@ class cendari (
   $atom_ckansync_user_password = $cendari::params::atom_ckansync_user_password,
   $atom_ckansync_ckan_url      = $cendari::params::atom_ckansync_ckan_url,
   $atom_mail_report_to         = $cendari::params::atom_mail_report_to,
+  $ckan_shibplugin             = $cendari::params::ckan_shibplugin,
+  $ckan_storagepath            = $cendari::params::ckan_storagepath,
+  $ckan_pgsqldb                = $cendari::params::ckan_pgsqldb,
+  $ckan_pgsqluser              = $cendari::params::ckan_pgsqluser,
+  $ckan_pgsqlpassword          = $cendari::params::ckan_pgsqlpassword,
+  $ckan_pgsqldsdb              = $cendari::params::ckan_pgsqldsdb,
+  $ckan_pgsqldsuser            = $cendari::params::ckan_pgsqldsuser,
+  $ckan_pgsqldspassword        = $cendari::params::ckan_pgsqldspassword,
+  $ckan_secret                 = $cendari::params::ckan_secret,
+  $ckan_app_uuid               = $cendari::params::ckan_app_uuid,
+  $ckan_site_url               = $cendari::params::ckan_site_url,
+  $ckan_api_url                = $cendari::params::ckan_api_url,
+  $ckan_storage_url_prefix     = $cendari::params::ckan_storage_url_prefix,
 
 ) inherits cendari::params {
 
@@ -58,6 +71,7 @@ class cendari (
     'backoffice': {
       Anchor['cendari::begin'] ->
       class { 'cendari::components::atom': } ->
+      class { 'cendari::components::ckan': } ->
       Anchor['cendari::end']
     }
   }

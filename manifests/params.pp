@@ -23,6 +23,20 @@ class cendari::params {
   $atom_ckansync_ckan_url      = undef
   $atom_mail_report_to         = 'root@localhost'
 
+  $ckan_shibplugin             = 'cendari'
+  $ckan_storagepath            = undef
+  $ckan_pgsqldb                = 'ckan'
+  $ckan_pgsqluser              = 'ckan'
+  $ckan_pgsqlpassword          = undef
+  $ckan_pgsqldsdb              = 'ckands'
+  $ckan_pgsqldsuser            = 'ckands'
+  $ckan_pgsqldspassword        = undef
+  $ckan_secret                 = undef
+  $ckan_app_uuid               = undef
+  $ckan_site_url               = "https://${::fqdn}"
+  $ckan_api_url                = '/ckan'
+  $ckan_storage_url_prefix     = "https://${::fqdn}/ckan/storage/f/"
+
 
 }
 
