@@ -60,12 +60,14 @@ class cendari (
       class { 'cendari::components::docs': } ->
       class { 'cendari::components::litef': } ->
       class { 'cendari::components::notes': } ->
+      class { 'cendari::components::ontologies': } ->
       class { 'cendari::components::pineapple': } ->
       Anchor['cendari::end']
     }
     'frontoffice': {
       Anchor['cendari::begin'] ->
       class { 'cendari::components::docs': } ->
+      class { 'cendari::components::ontologies': } ->
       Anchor['cendari::end']
     }
     'backoffice': {
