@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'shared_contexts'
 
 describe 'cendari' do
   let(:facts) { {:osfamily => 'Debian', :lsbdistid => 'Ubuntu', :lsbdistcodename => 'trusty'} }
