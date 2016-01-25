@@ -52,6 +52,9 @@ class cendari (
     Anchor['cendari::prepare'] -> Class['cendari::repository'] -> Anchor['cendari::begin']
   }
 
+  class { 'cendari::components::defaults': }
+  Anchor['cendari::prepare'] -> Class['cendari::components::defaults'] -> Anchor['cendari::begin']
+
   case $variant {
     'cendariinabox': {
       Anchor['cendari::begin'] ->
@@ -79,7 +82,7 @@ class cendari (
     }
     default : {
       # nothing to do
-      }
+    }
   }
   
 
