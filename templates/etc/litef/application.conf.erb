@@ -45,7 +45,7 @@ litef.indexer {
 
 litef.conductor {
     fileSizeLimit = 10000
-    plugins = "conductor.plugins.DocumentIndexerPlugin,conductor.plugins.NerdPlugin,conductor.plugins.VirtuosoFeederPlugin,conductor.plugins.ElasticFeederPlugin"
+    plugins = "<%= scope.lookupvar('::cendari::litef_conductor_plugins') %>"
 }
 
 akka {
