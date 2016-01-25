@@ -53,7 +53,7 @@ class cendari (
   }
 
   case $variant {
-    default,'cendariinabox': {
+    'cendariinabox': {
       Anchor['cendari::begin'] ->
       class { 'cendari::components::atom': } ->
       class { 'cendari::components::ckan': } ->
@@ -67,6 +67,7 @@ class cendari (
     'frontoffice': {
       Anchor['cendari::begin'] ->
       class { 'cendari::components::docs': } ->
+      class { 'cendari::components::notes': } ->
       class { 'cendari::components::ontologies': } ->
       Anchor['cendari::end']
     }
@@ -76,6 +77,9 @@ class cendari (
       class { 'cendari::components::ckan': } ->
       Anchor['cendari::end']
     }
+    default : {
+      # nothing to do
+      }
   }
   
 

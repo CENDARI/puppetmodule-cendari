@@ -8,7 +8,7 @@ class cendari::params {
   $repo_url       = 'https://sandbox.cendari.dariah.eu/packages'
   $repo_key_url   = 'https://sandbox.cendari.dariah.eu/cendari_repository.asc'
   $repo_key_id    = '041262CC36856E7787436790D914C5D73034679B'
-  $variant        = 'cendariinabox'
+  $variant        = undef
 
   $atom_url                    = undef
   $atom_mysql_db               = 'atom2'
