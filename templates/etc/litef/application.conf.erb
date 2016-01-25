@@ -1,0 +1,77 @@
+logger.scala.slick.session=DEBUG
+
+litef {
+    namespace = "http://localhost:42042/v1/"
+}
+
+
+litef.ckan {
+<% if scope.lookupvar('::cendari::ckan_api_url') == '/' -%>
+    home         = "<%= scope.lookupvar('::cendari::ckan_site_url') %><%= scope.lookupvar('::cendari::ckan_api_url') %>"
+    namespace    = "<%= scope.lookupvar('::cendari::ckan_site_url') %><%= scope.lookupvar('::cendari::ckan_api_url') %>api/3/"
+<% else -%>
+    home         = "<%= scope.lookupvar('::cendari::ckan_site_url') %><%= scope.lookupvar('::cendari::ckan_api_url') %>/"
+    namespace    = "<%= scope.lookupvar('::cendari::ckan_site_url') %><%= scope.lookupvar('::cendari::ckan_api_url') %>/api/3/"
+<% end -%>
+    apiKey       = "<%= scope.lookupvar('::cendari::litef_apikey') %>"
+
+    localStoragePrefix = "<%= scope.lookupvar('::cendari::ckan_storagepath') %>/resources"
+
+    postgres {
+        url      = "jdbc:postgresql://localhost:5432/<%= scope.lookupvar('::cendari::ckan_pgsqldb') %>"
+        driver   = "org.postgresql.Driver"
+        username = "<%= scope.lookupvar('::cendari::ckan_pgsqluser') %>"
+        password = "<%= scope.lookupvar('::cendari::ckan_pgsqlpassword') %>"
+    }
+}
+
+litef.virtuoso {
+    url = "jdbc:virtuoso://localhost:1111"
+    username = "dba"
+    password = "<%= scope.lookupvar('::cendari::virtuoso_dba_password') %>"
+}
+
+litef.nerd {
+    namespace = "http://traces1.saclay.inria.fr:8090/"
+}
+
+litef.elastic {
+    namespace = "http://localhost:9200/"
+}
+
+litef.indexer {
+    localStoragePrefix = "/var/lib/litef/default/resources"
+}
+
+litef.conductor {
+    fileSizeLimit = 10000
+    plugins = "conductor.plugins.DocumentIndexerPlugin,conductor.plugins.NerdPlugin,conductor.plugins.VirtuosoFeederPlugin,conductor.plugins.ElasticFeederPlugin"
+}
+
+akka {
+    log-dead-letters = 10
+    log-dead-letters-during-shutdown = on
+    loglevel = "INFO"
+}
+
+spray {
+  can.server {
+    request-timeout = 240s
+    idle-timeout = 300s
+
+  }
+  can.client {
+    request-timeout = 240s
+    idle-timeout = 300s
+
+  }
+
+  routing {
+    file-chunking-threshold-size = 10k
+    file-chunking-chunk-size = 5k
+  }
+}
+
+logger.scala.slick=ERROR
+logger.scala.slick.session=ERROR
+

@@ -34,6 +34,10 @@ class cendari (
   $ckan_site_url               = $cendari::params::ckan_site_url,
   $ckan_api_url                = $cendari::params::ckan_api_url,
   $ckan_storage_url_prefix     = $cendari::params::ckan_storage_url_prefix,
+  $virtuoso_dba_password       = $cendari::params::virtuoso_dba_password,
+  $litef_user_group            = $cendari::params::litef_user_group,
+  $litef_apikey                = $cendari::params::litef_apikey,
+  $litef_conductor_plugins     = $cendari::params::litef_conductor_plugins,
 
 ) inherits cendari::params {
 
@@ -78,6 +82,7 @@ class cendari (
       Anchor['cendari::begin'] ->
       class { 'cendari::components::atom': } ->
       class { 'cendari::components::ckan': } ->
+      class { 'cendari::components::litef': } ->
       Anchor['cendari::end']
     }
     default : {

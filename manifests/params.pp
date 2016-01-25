@@ -37,6 +37,10 @@ class cendari::params {
   $ckan_api_url                = '/ckan'
   $ckan_storage_url_prefix     = "https://${::fqdn}/ckan/storage/f/"
 
+  $virtuoso_dba_password       = undef
+  $litef_user_group            = undef
+  $litef_apikey                = undef
+  $litef_conductor_plugins     = 'conductor.plugins.DocumentIndexerPlugin,conductor.plugins.VirtuosoFeederPlugin,conductor.plugins.ElasticFeederPlugin'
 
 }
 
