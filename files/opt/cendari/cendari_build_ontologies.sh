@@ -195,6 +195,9 @@ htmlpagehandle.write(newhtmlpage)
 htmlpagehandle.close()
 EOF
 
+DEFAULTJSON=$(ls -1 target/view/js/data/*.json | head -n 1 | xargs -n1 basename | sed -e 's/\..*$//')
+sed -i "s/defaultJsonName = \"foaf\"/defaultJsonName = \"${DEFAULTJSON}\"/g" target/view/js/webvowl-app.js
+
 #
 # COMPILE PACKAGE
 #
