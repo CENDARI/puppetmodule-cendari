@@ -19,7 +19,7 @@ class cendari::repository inherits cendari {
       }
       exec {'update_cendari_deb_repository':
         path    => ['/usr/bin','/bin'],
-        command =>  'apt-get update -o Dir::Etc::sourcelist="sources.list.d/cendari_ubunturepository.list" -o Dir::Etc::sourceparts="-" -o APT::Get::List-Cleanup="0"',
+        command =>  'apt-get update -o Dir::Etc::sourcelist="sources.list.d/cendari_deb_repository.list" -o Dir::Etc::sourceparts="-" -o APT::Get::List-Cleanup="0"',
         cwd     => '/tmp',
         user    => 'root',
         group   => 'root',
