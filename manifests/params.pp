@@ -42,5 +42,6 @@ class cendari::params {
   $litef_apikey                = undef
   $litef_conductor_plugins     = 'conductor.plugins.DocumentIndexerPlugin,conductor.plugins.VirtuosoFeederPlugin,conductor.plugins.ElasticFeederPlugin'
 
+  $pineapple_rewrite_base      = '/'
 }
 

@@ -38,6 +38,7 @@ class cendari (
   $litef_user_group            = $cendari::params::litef_user_group,
   $litef_apikey                = $cendari::params::litef_apikey,
   $litef_conductor_plugins     = $cendari::params::litef_conductor_plugins,
+  $pineapple_rewrite_base      = $cendari::params::pineapple_rewrite_base,
 
 ) inherits cendari::params {
 
@@ -83,6 +84,7 @@ class cendari (
       class { 'cendari::components::atom': } ->
       class { 'cendari::components::ckan': } ->
       class { 'cendari::components::litef': } ->
+      class { 'cendari::components::pineapple': } ->
       Anchor['cendari::end']
     }
     default : {
