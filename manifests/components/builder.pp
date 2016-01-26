@@ -157,6 +157,20 @@ class cendari::components::builder inherits cendari {
     target => '/opt/cendari/cendari_build_litef.sh',
   }
 
+  file {'/opt/cendari/cendari_build_ontologies.sh':
+    ensure => file,
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0755',
+    source => 'puppet:///modules/cendari/opt/cendari/cendari_build_ontologies.sh',
+  }->
+  file { '/usr/local/bin/cendari_build_ontologies':
+    ensure => link,
+    owner  => 'root',
+    group  => 'root',
+    target => '/opt/cendari/cendari_build_ontologies.sh',
+  }
+
   file { '/var/cache/cendari_builder':
     ensure => directory,
     owner  => 'root',
