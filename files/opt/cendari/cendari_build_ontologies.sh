@@ -154,7 +154,7 @@ datafiles = [f for f in listdir(datadir) if path.isfile(path.join(datadir, f))]
 htmlpagehandle = open(path.join(maindir,'index.html'), 'r')
 htmlcontent = htmlpagehandle.read()
 htmlpagehandle.close()
-newhtmlpage = htmlcontent.split('<li id="select">')[0] + '<ul class="toolTipMenu select">'
+newhtmlpage = htmlcontent.split('<li id="select">')[0] + '<li id="select"><a href="#">Ontology</a><ul class="toolTipMenu select">'
 
 datadict = {}
 for f in datafiles:
@@ -199,6 +199,7 @@ EOF
 # COMPILE PACKAGE
 #
 
+cd target
 OLDDIR=$(pwd)
 
 cd /var/cache/cendari_builder
@@ -210,7 +211,7 @@ fpm -t deb -s dir --name cendari-ontologies \
                   --url='http://www.cendari.eu' \
                   --iteration ${ITERATION} \
                   --version ${VERSION} \
-                  -x ".git**" -x "**/.git**" -x "**/.hg**" -x "**/.svn**" -x "**/*.deb" \
+                  -x ".git**" -x "**/.git**" -x "**/.hg**" -x "**/.svn**" -x "**/*.deb" -x "**/__MACOSX"\
                   --depends apache2 \
                   --prefix /var/www/ontologies \
                   -C ${OLDDIR} .
