@@ -176,10 +176,8 @@ newhtmlpage = newhtmlpage + '''</ul>
         </nav>
     </main>
     <script src="js/d3.min.js"></script>
-    <!--<script src="js/webvowl.js"></script>-->
-    <script src="js/webvowl.min.js"></script>
-    <!--<script src="js/webvowl-app.js"></script>-->
-    <script src="js/webvowl-app.min.js"></script>
+    <script src="js/webvowl.js"></script>
+    <script src="js/webvowl-app.js"></script>
     <script>
         webvowlApp.version = "0.4.0"
     </script>
