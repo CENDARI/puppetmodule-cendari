@@ -35,6 +35,8 @@ class cendari (
   $ckan_api_url                = $cendari::params::ckan_api_url,
   $ckan_storage_url_prefix     = $cendari::params::ckan_storage_url_prefix,
   $virtuoso_dba_password       = $cendari::params::virtuoso_dba_password,
+  $virtuoso_dav_password       = $cendari::params::virtuoso_dav_password,
+  $virtuoso_host               = $cendari::params::virtuoso_host,
   $litef_user_group            = $cendari::params::litef_user_group,
   $litef_apikey                = $cendari::params::litef_apikey,
   $litef_conductor_plugins     = $cendari::params::litef_conductor_plugins,
