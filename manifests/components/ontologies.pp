@@ -8,5 +8,9 @@ class cendari::components::ontologies (
     ensure => latest
   }
 
+  package { 'cendari-ontologyuploader':
+    ensure  => latest,
+  }
+
 }
 
