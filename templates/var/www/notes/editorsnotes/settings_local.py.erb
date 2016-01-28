@@ -1,0 +1,206 @@
+##########################
+# FILE MANAGED BY PUPPET #
+##########################
+
+######################
+# Required variables #
+######################
+
+SECRET_KEY = '<%= scope.lookupvar('::cendari::notes_secret') %>'
+POSTGRES_DB = {
+    'NAME': '<%= scope.lookupvar('::cendari::notes_pgsqldb') %>',
+    'USER': '<%= scope.lookupvar('::cendari::notes_pgsqluser') %>',
+    'PASSWORD': '<%= scope.lookupvar('::cendari::notes_pgsqlpassword') %>',
+    'HOST': 'localhost',
+    'PORT': ''
+}
+
+NERD_SERVICE_SERVER = 'http://traces1.saclay.inria.fr/nerd/service/processNERDText'
+
+#SEMANTIC_STORE = 'Sleepycat'
+#SEMANTIC_PATH = os.path.abspath(os.path.join(STORAGE_PATH, 'rdfstore'))
+SEMANTIC_STORE = 'Virtuoso'
+
+VIRTUOSO = {
+    'dba_password': '<%= scope.lookupvar('::cendari::virtuoso_dba_password') %>',
+    'dav_password': '<%= scope.lookupvar('::cendari::virtuoso_dav_password') %>',
+    'HOST': '<%= scope.lookupvar('::cendari::virtuoso_host') %>'
+}
+
+#SEMANTIC_NAMESPACE = "http://resources.cendari.dariah.eu/"
+
+CENDARI_DATA_API_SERVER = "http://localhost:42042/v1/"
+
+LDAP_GROUP_MAPS = {
+    'admin_groups': 'cendari-admins;cendari-vre-admins',
+    'editor_groups': '',
+    'contributor_groups': 'cendari-contributors;cendari-vre-contributors',
+    'user_groups': 'cendari-users;cendari-vre-users'
+}
+
+ADMIN_USER = {
+  'eppn': '<%= scope.lookupvar('::cendari::notes_adminuser_eppn') %>',
+  'mail': '<%= scope.lookupvar('::cendari::notes_adminuser_mail') %>',
+  'key': '<%= scope.lookupvar('::cendari::notes_adminuser_key') %>'
+}
+
+ELASTICSEARCH_ENABLED = True
+
+# Each ElasticSearch index created will be prefixed with this string.
+ELASTICSEARCH_PREFIX = 'editorsnotes'
+
+# As defined in pyelasticsearch, ELASTICSEARCH_URLS should be:
+#
+# A URL or iterable of URLs of ES nodes. These are full URLs with port numbers,
+# like ``http://elasticsearch.example.com:9200``.
+#
+ELASTICSEARCH_URLS = 'http://127.0.0.1:9200'
+
+# The base URL for your site, with protocol, hostname, and port (if not 80 for
+# http or 443 for https). This will be used to construct fully-qualified URLs
+# from hyperlinks in the Elasticsearch index.
+ELASTICSEARCH_SITE = '<%= scope.lookupvar('::cendari::notes_siteurl') %>'
+
+SITE_URL = '<%= scope.lookupvar('::cendari::notes_siteurl') %>'
+
+<% if scope.lookupvar('::cendari::notes_debugmode') == true %>
+DEBUG = True
+<% else %>
+DEBUG = False
+<% end %>
+
+TEMPLATE_DEBUG = DEBUG
+
+ADMINS = (
+    ('CENDARI Admins', '<%= scope.lookupvar('::cendari::adminmail') %>'),
+)
+MANAGERS = ADMINS
+
+
+#############
+# Overrides #
+#############
+
+TIME_ZONE = 'Europe/Berlin'
+# LANGUAGE_CODE = ''
+# DATETIME_FORMAT = ''
+# USE_L10N = True
+# USE I18N = True
+
+
+# Edit STORAGE_PATH to change where uploads, static files, and search indexes
+# will be stored, or change each of the settings individually.
+# STORAGE_PATH = ''
+
+# MEDIA_ROOT = ''
+# STATIC_ROOT = ''
+SUB_SITE = '<%= scope.lookupvar('::cendari::notes_sub_site') %>'
+MEDIA_URL = SUB_SITE+'media/'
+STATIC_URL = SUB_SITE+'static/'
+
+# Point this to the Less CSS compiler if it is not on PATH
+# LESSC_BINARY = ''
+
+
+######################
+# Optional variables #
+######################
+
+# Set the following variables to connect to an instance of Open Refine and
+# enable clustering topics and documents.
+GOOGLE_REFINE_HOST = '127.0.0.1'
+GOOGLE_REFINE_PORT = '3333'
+
+# Set the following to be able to write all Zotero data to a central library.
+ZOTERO_API_KEY = ''
+ZOTERO_LIBRARY = ''
+
+# Define locally installed apps here
+LOCAL_APPS = (
+    'editorsnotes_app',
+    'cendari',
+    'djadmin2',
+    'djadmin2.themes.djadmin2theme_default', # for the default theme
+    'rest_framework', # for the browsable API templates
+    'floppyforms', # For HTML5 form fields
+    'crispy_forms', # Required for the default theme's layout
+)
+    
+ROOT_URLCONF = 'cendari.urls'
+## CENDARI ADD
+IIPSRV = 'https://<%= scope.lookupvar('::cendari::notes_hostname') %>/iipsrv/iipsrv.fcgi'
+
+WSGI_APPLICATION = "cendari.wsgi.application" 
+
+RQ_QUEUES = {
+    'default': {
+        'HOST': 'localhost',
+        'PORT': 6379,
+        'DB': 0,
+    }
+}
+
+
+ALLOWED_HOSTS=["<%= scope.lookupvar('::cendari::notes_hostname') %>"]
+
+# for use with django development server only. DO NOT USE IN PRODUCTION
+#SENDFILE_BACKEND = 'sendfile.backends.development'
+#
+# "simple" backend that uses Django file objects to attempt to stream files
+# from disk (note middleware may cause files to be loaded fully into memory)
+#
+#SENDFILE_BACKEND = 'sendfile.backends.simple'
+#
+# sets X-Sendfile header (as used by mod_xsendfile/apache and lighthttpd)
+SENDFILE_BACKEND = 'sendfile.backends.xsendfile'
+#
+# sets Location with 200 code to trigger internal redirect (daemon
+# mode mod_wsgi only - see below)
+#SENDFILE_BACKEND = 'sendfile.backends.mod_wsgi'
+#
+#  sets X-Accel-Redirect header to trigger internal redirect to file
+#SENDFILE_BACKEND = 'sendfile.backends.nginx'
+
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+    'handlers': {
+        'null': {
+            'level': 'DEBUG',
+            'class': 'django.utils.log.NullHandler',
+        },
+        'console':{
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple'
+        },
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': '/var/log/notes/debug.log',
+            'formatter': 'verbose'
+        },
+    },
+    'loggers': {
+#        'django': {
+#            'handlers': ['file'],
+#            'propagate': True,
+#            'level': 'DEBUG',
+#        },
+        'cendari': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    }
+}
+

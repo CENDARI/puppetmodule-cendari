@@ -1,0 +1,8 @@
+[program:notes_script]
+directory=/var/www/notes
+command=/var/www/notes/bin/python manage.py rqworker
+stopasgroup=true
+stopsignal=QUIT
+stderr_logfile=/var/log/notes.err.log
+stdout_logfile=/var/log/notes.out.log
+

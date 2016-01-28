@@ -1,0 +1,28 @@
+# Create a directory for the iipsrv binary
+ScriptAlias /iipsrv/ "/usr/lib/iipimage-server/"
+
+# Set the options on that directory
+<Directory "/iipsrv/">
+   AllowOverride None
+   Options None
+   Order allow,deny
+   Allow from all
+
+   # Set the module handler
+   AddHandler fcgid-script .fcgi
+</Directory>
+
+# Set our environment variables for the IIP server
+FcgidInitialEnv VERBOSITY "1"
+FcgidInitialEnv LOGFILE "/var/log/iipsrv.log"
+FcgidInitialEnv MAX_IMAGE_CACHE_SIZE "10"
+FcgidInitialEnv JPEG_QUALITY "90"
+FcgidInitialEnv MAX_CVT "5000"
+FcgidInitialEnv FILESYSTEM_PREFIX '/var/www/notes/uploads/'
+#FcgidInitialEnv MEMCACHED_SERVERS "localhost"
+
+# Define the idle timeout as unlimited and the number of
+# processes we want
+FcgidIdleTimeout 0
+FcgidMaxProcessesPerClass 1
+

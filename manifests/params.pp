@@ -44,6 +44,18 @@ class cendari::params {
   $litef_apikey                = undef
   $litef_conductor_plugins     = 'conductor.plugins.DocumentIndexerPlugin,conductor.plugins.VirtuosoFeederPlugin,conductor.plugins.ElasticFeederPlugin'
 
+  $notes_pgsqldb               = 'notes'
+  $notes_pgsqluser             = 'notes'
+  $notes_pgsqlpassword         = undef
+  $notes_secret                = undef
+  $notes_adminuser_eppn        = undef
+  $notes_adminuser_mail        = undef
+  $notes_adminuser_key         = undef
+  $notes_debugmode             = false
+  $notes_hostname              = $::fqdn
+  $notes_siteurl               = "https://${::fqdn}/"
+  $notes_sub_site              = '/'
+
   $pineapple_rewrite_base      = '/'
 }
 

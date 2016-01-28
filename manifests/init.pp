@@ -41,6 +41,17 @@ class cendari (
   $litef_apikey                = $cendari::params::litef_apikey,
   $litef_conductor_plugins     = $cendari::params::litef_conductor_plugins,
   $pineapple_rewrite_base      = $cendari::params::pineapple_rewrite_base,
+  $notes_pgsqldb               = $cendari::params::notes_pgsqldb,
+  $notes_pgsqluser             = $cendari::params::notes_pgsqluser,
+  $notes_pgsqlpassword         = $cendari::params::notes_pgsqlpassword,
+  $notes_secret                = $cendari::params::notes_secret,
+  $notes_adminuser_eppn        = $cendari::params::notes_adminuser_eppn,
+  $notes_adminuser_mail        = $cendari::params::notes_adminuser_mail,
+  $notes_adminuser_key         = $cendari::params::notes_adminuser_key,
+  $notes_debugmode             = $cendari::params::notes_debugmode,
+  $notes_hostname              = $cendari::params::notes_hostname,
+  $notes_siteurl               = $cendari::params::notes_siteurl,
+  $notes_sub_site              = $cendari::params::notes_sub_site,
 
 ) inherits cendari::params {
 
