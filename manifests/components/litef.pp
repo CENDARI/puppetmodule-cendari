@@ -71,5 +71,14 @@ class cendari::components::litef inherits cendari {
     hasstatus  => true,
   }
 
+  logrotate::rule { 'litef-conductor':
+    path         => '/var/log/litef/conductor.log',
+    rotate       => 5,
+    rotate_every => 'week',
+    size         => '100M',
+    compress     => true,
+    copytruncate => true,
+  }
+
 }
 

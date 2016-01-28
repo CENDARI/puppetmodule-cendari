@@ -20,7 +20,8 @@
     {"name":"puppetlabs-concat","version_requirement":">= 1.1.1"},
     {"name":"puppetlabs-stdlib","version_requirement":">= 4.3.2"},
     {"name":"nanliu-staging","version_requirement":">= 1.0.0"},
-    {"name":"stankevich-python","version_requirement":">= 1.7.10"}
+    {"name":"stankevich-python","version_requirement":">= 1.7.10"},
+    {"name":"yo61-logrotate","version_requirement":">= 1.3.0"}
   ]
 }
 
