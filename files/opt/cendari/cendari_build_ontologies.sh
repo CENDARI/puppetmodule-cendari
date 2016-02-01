@@ -43,22 +43,10 @@ cat << EOF > index.html
     <header>
       <div class="container">
         <div class="row">
-          <div class="col-md-9">
+          <div class="col-md-12">
             <div class="logo">
-              <a href="#">
+              <a href="http://cendari.eu">
               </a>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="dropdown pull-right">
-              <button class="btn btn-default dropdown-toggle" type="button" id="loginButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Log in</button>
-              <div class="dropdown-menu drop-form" aria-labelledby="loginButton">
-                <form>
-                  <input type="text" class="form-control" placeholder="Username">
-                  <input type="password" class="form-control" placeholder="Password">
-                  <button class="btn btn-primary btn-block">Log in</button>
-                </form>
-              </div>
             </div>
           </div>
         </div>
@@ -86,7 +74,7 @@ cat << EOF > index.html
               <a href="view">Viewer</a>
             </li>
             <li>
-              <a href="upload">Uploader</a>
+              <a href="/ontologyuploader">Uploader</a>
             </li>
           </ul>
         </div><!--/.nav-collapse -->
@@ -98,13 +86,13 @@ cat << EOF > index.html
          <div class="col-xs-12 col-sm-6 col-md-6 panel secondary">
             <div class="content-body">
               <h3>Ontology Viewer</h3>
-              <a href="#" class="btn btn-default btn-block">Start using it</a>
+              <a href="view" class="btn btn-default btn-block">Start using it</a>
             </div>
           </div>
           <div class="col-xs-12 col-sm-6 col-md-6 panel secondary">
             <div class="content-body">
               <h3>Ontology Uploader</h3>
-              <a href="#" class="btn btn-default">Start using it</a>
+              <a href="/ontologyuploader" class="btn btn-default">Start using it</a>
             </div>
           </div>
        </div><!-- .row .equal -->
