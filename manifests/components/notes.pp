@@ -92,7 +92,7 @@ class cendari::components::notes inherits cendari {
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
-    content => template('components/etc/odbc.ini.erb'),
+    content => template('cendari/etc/odbc.ini.erb'),
     notify  => Service['apache2'],
   }
 
