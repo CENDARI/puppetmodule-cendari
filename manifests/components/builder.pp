@@ -2,7 +2,7 @@
 #
 class cendari::components::builder inherits cendari {
 
-  ensure_packages(['openjdk-7-jre-headless','openjdk-7-jdk','maven'])
+  ensure_packages(['openjdk-7-jre-headless','openjdk-7-jdk','maven', 'xz-utils'])
   ensure_packages(['libsasl2-dev','php5-cli'])
 
   Package['openjdk-7-jdk'] -> Package['maven']
