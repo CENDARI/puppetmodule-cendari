@@ -2,6 +2,8 @@
 #
 class cendari::components::builder inherits cendari {
 
+  include 'cendari::components::defaults'
+
   ensure_packages(['openjdk-7-jre-headless','openjdk-7-jdk','maven', 'xz-utils'])
   ensure_packages(['libsasl2-dev','php5-cli'])
 
@@ -26,7 +28,7 @@ class cendari::components::builder inherits cendari {
     creates => '/usr/local/bin/fpm',
     umask   => '0022',
   }
-  
+
   # install bower via npm
   exec { 'npm_install_bower':
     path    => [ '/bin', '/usr/bin', '/usr/local/bin' ],
@@ -67,7 +69,7 @@ class cendari::components::builder inherits cendari {
     require => Exec['install_doxphp'],
   }
 
-  # sbt to compile litef  
+  # sbt to compile litef
   staging::deploy { 'sbt-0.13.6.tgz':
     source  => 'https://dl.bintray.com/sbt/native-packages/sbt/0.13.6/sbt-0.13.6.tgz',
     target  => '/opt/',
