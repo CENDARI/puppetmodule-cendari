@@ -2,17 +2,8 @@
 #
 class cendari::components::defaults inherits cendari {
 
-  package {
-    'g++':                  ensure => present;
-    'python-pip':           ensure => present;
-    'python-virtualenv':    ensure => present;
-    'nfs-common':           ensure => present;
-    'nodejs':               ensure => present;
-    'nodejs-legacy':        ensure => present;
-    'ruby-dev':             ensure => present;
-    'npm':                  ensure => present;
-    'fabric':               ensure => present;
-  }
+  ensure_packages(['g++','python-pip','python-virtualenv','nfs-common','nodejs','nodejs-legacy','ruby-dev','npm','fabric'])
+
   # install less compiler
   exec { 'npm_install_lessc':
     path    => ['/usr/bin','/bin'],

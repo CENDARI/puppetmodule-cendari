@@ -2,38 +2,9 @@
 #
 class cendari::components::notes_dev inherits cendari {
 
-  package {
-    'libvips-tools':       ensure  => installed;
-    'python-vipscc':       ensure  => installed;
-    'libcurl4-gnutls-dev': ensure  => installed;
-    'libjpeg-dev':         ensure  => installed;
-    'libtiff5-dev':        ensure  => installed;
-    'libopenjpeg-dev':     ensure  => installed;
-    'zlib1g-dev':          ensure  => installed;
-    'unixodbc-dev':        ensure  => installed;
-    'libtiff4-dev':        ensure  => installed;
-  }
+  ensure_packages(['libvips-tools','python-vipscc','libcurl4-gnutls-dev', 'libjpeg-dev', 'libtiff5-dev', 'libopenjpeg-dev', 'zlib1g-dev', 'unixodbc-dev', 'libtiff4-dev'])
 
-  package {'libpq-dev':
-    ensure => installed,
-  }
-
-  package {'python-dev':
-    ensure => installed,
-  }
-
-  package {'libxml2-dev':
-    ensure => installed,
-  }
-
-  package {'libxslt1-dev':
-    ensure => installed,
-  }
-
-  package {'ruby-dev':
-    ensure => installed,
-  }
-
+  ensure_packages(['libpq-dev','python-dev','libxml2-dev', 'libxslt1-dev', 'ruby-dev'])
 
   python::pip { 'flup':
     pkgname => 'flup',
