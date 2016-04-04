@@ -9,6 +9,7 @@ class cendari::components::defaults inherits cendari {
     'nfs-common':           ensure => present;
     'nodejs':               ensure => present;
     'nodejs-legacy':        ensure => present;
+    'ruby-dev':             ensure => present;
     'npm':                  ensure => present;
     'fabric':               ensure => present;
   }

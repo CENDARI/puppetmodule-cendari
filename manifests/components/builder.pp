@@ -27,6 +27,8 @@ class cendari::components::builder inherits cendari {
     cwd     => '/tmp',
     creates => '/usr/local/bin/fpm',
     umask   => '0022',
+    require => Package['ruby-dev'],
+
   }
 
   # install bower via npm
@@ -45,6 +47,7 @@ class cendari::components::builder inherits cendari {
     cwd     => '/tmp',
     creates => '/usr/local/bin/grunt',
     umask   => '0022',
+    require => Package['npm'],
   }
 
   # manually install doxphp
