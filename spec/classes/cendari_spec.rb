@@ -120,89 +120,89 @@ describe 'cendari' do
           )
       end
 
-      # NOTES 
+      # NOTES
       it do
         is_expected.to contain_package('libvips-tools')
           .with(
-            'ensure' => 'installed'
+            'ensure' => 'present'
           )
       end
       it do
         is_expected.to contain_package('python-vipscc')
           .with(
-            'ensure' => 'installed'
+            'ensure' => 'present'
           )
       end
       it do
         is_expected.to contain_package('libcurl4-gnutls-dev')
           .with(
-            'ensure' => 'installed'
+            'ensure' => 'present'
           )
       end
       it do
         is_expected.to contain_package('libjpeg-dev')
           .with(
-            'ensure' => 'installed'
+            'ensure' => 'present'
           )
       end
       it do
         is_expected.to contain_package('libtiff5-dev')
           .with(
-            'ensure' => 'installed'
+            'ensure' => 'present'
           )
       end
       it do
         is_expected.to contain_package('libopenjpeg-dev')
           .with(
-            'ensure' => 'installed'
+            'ensure' => 'present'
           )
       end
       it do
         is_expected.to contain_package('zlib1g-dev')
           .with(
-            'ensure' => 'installed'
+            'ensure' => 'present'
           )
       end
       it do
         is_expected.to contain_package('unixodbc-dev')
           .with(
-            'ensure' => 'installed'
+            'ensure' => 'present'
           )
       end
       it do
         is_expected.to contain_package('libtiff4-dev')
           .with(
-            'ensure' => 'installed'
+            'ensure' => 'present'
           )
       end
       it do
         is_expected.to contain_package('libpq-dev')
           .with(
-            'ensure' => 'installed'
+            'ensure' => 'present'
           )
       end
       it do
         is_expected.to contain_package('python-dev')
           .with(
-            'ensure' => 'installed'
+            'ensure' => 'present'
           )
       end
       it do
         is_expected.to contain_package('libxml2-dev')
           .with(
-            'ensure' => 'installed'
+            'ensure' => 'present'
           )
       end
       it do
         is_expected.to contain_package('libxslt1-dev')
           .with(
-            'ensure' => 'installed'
+            'ensure' => 'present'
           )
       end
       it do
         is_expected.to contain_package('ruby-dev')
           .with(
-            'ensure' => 'installed'
+            'ensure' => 'present'
           )
       end
       it do
