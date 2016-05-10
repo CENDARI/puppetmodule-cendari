@@ -3,7 +3,7 @@
 class cendari::components::pineapple inherits cendari {
 
   package { 'cendari-pineapple':
-    ensure  => latest,
+    ensure => latest,
   }
 
   file { '/var/www/pineapple':

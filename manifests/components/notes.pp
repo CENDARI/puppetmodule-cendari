@@ -15,11 +15,11 @@ class cendari::components::notes inherits cendari {
   }
 
   package { 'imagemagick':
-    ensure  => installed,
+    ensure => installed,
   }
 
   package { 'supervisor':
-    ensure  => installed,
+    ensure => installed,
   }->
   file{'/etc/supervisor/conf.d/notes.conf':
     ensure  => file,
@@ -65,7 +65,7 @@ class cendari::components::notes inherits cendari {
     owner   => 'www-data',
     group   => 'www-data',
     recurse => true,
-    require => [Package['cendari-notes'],Package['iipimage-server']]
+    require => [Package['cendari-notes'],Package['iipimage-server']],
   }
 
   file { '/var/log/notes':
@@ -84,7 +84,7 @@ class cendari::components::notes inherits cendari {
     ensure  => directory,
     owner   => 'www-data',
     recurse => true,
-    require => [Package['cendari-notes'],Package['iipimage-server'],File['/var/cache/notes']]
+    require => [Package['cendari-notes'],Package['iipimage-server'],File['/var/cache/notes']],
   }
 
   file { '/etc/odbc.ini':

@@ -9,16 +9,18 @@ class cendari::components::builder inherits cendari {
 
   Package['openjdk-7-jdk'] -> Package['maven']
 
-  package {
-    'texlive-generic-recommended': ensure => installed;
-    'texlive-latex-recommended':   ensure => installed;
-    'texlive-latex-extra':         ensure => installed;
-    'texlive-fonts-recommended':   ensure => installed;
-    'texlive-fonts-extra':         ensure => installed;
-    'lmodern':                     ensure => installed;
-    'fonts-linuxlibertine':        ensure => installed;
-    'texlive-xetex':               ensure => installed;
-  }
+  ensure_packages(['openjdk-7-jre-headless','openjdk-7-jdk','maven', 'xz-utils'])
+
+  ensure_packages([
+    'texlive-generic-recommended',
+    'texlive-latex-recommended',
+    'texlive-latex-extra',
+    'texlive-fonts-recommended',
+    'texlive-fonts-extra',
+    'lmodern',
+    'fonts-linuxlibertine',
+    'texlive-xetex'
+  ])
 
   # install fpm as gem
   exec { 'gem_install_fpm':

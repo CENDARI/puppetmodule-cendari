@@ -3,7 +3,7 @@
 class cendari::components::atom inherits cendari {
 
   package { 'cendari-atom':
-    ensure  => latest,
+    ensure => latest,
   }
 
   # config files
@@ -22,7 +22,7 @@ class cendari::components::atom inherits cendari {
     group   => 'www-data',
     mode    => '0644',
     require => Package['cendari-atom'],
-    source  => '/var/www/atom2/config/propel.ini.tmpl'
+    source  => '/var/www/atom2/config/propel.ini.tmpl',
   }
 
   file { '/var/www/atom2/atom2ckan/complete_atom_to_ckan_config.php':

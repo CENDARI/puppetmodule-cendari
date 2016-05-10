@@ -104,7 +104,6 @@ class cendari (
       # nothing to do
     }
   }
-  
 
 }
 

@@ -3,7 +3,7 @@
 class cendari::components::docs inherits cendari {
 
   package { 'cendari-docs':
-    ensure  => latest,
+    ensure => latest,
   }
 
 

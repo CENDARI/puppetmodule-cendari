@@ -5,11 +5,11 @@ class cendari::components::ontologies (
 ) inherits cendari {
 
   package { 'cendari-ontologies':
-    ensure => latest
+    ensure => latest,
   }
 
   package { 'cendari-ontologyuploader':
-    ensure  => latest,
+    ensure => latest,
   }
 
 }
