@@ -11,7 +11,7 @@ class cendari::components::notes inherits cendari {
 
   package { 'iipimage-server':
     ensure  => installed,
-    require => Package['apache2'],
+    require => Class['apache'],
   }
 
   package { 'imagemagick':
