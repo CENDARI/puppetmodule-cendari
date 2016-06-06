@@ -16,9 +16,13 @@ class cendari::repository inherits cendari {
       include_deb       => true,
       architecture      => 'amd64',
     }
+    # this exec runs only, if the precondition is not satisfied and than fails
+    # the precondition is a successful update of the dariah repos resources
+    # thus the resource will fail if the precondition fails but not report "changed" on success
     exec {'update_cendari_deb_repository':
       path    => ['/usr/bin','/bin'],
-      command =>  'apt-get update -o Dir::Etc::sourcelist="sources.list.d/cendari_deb_repository.list" -o Dir::Etc::sourceparts="-" -o APT::Get::List-Cleanup="0"',
+      command => '/bin/false',
+      unless  => 'apt-get update -o Dir::Etc::sourcelist="sources.list.d/cendari_deb_repository.list" -o Dir::Etc::sourceparts="-" -o APT::Get::List-Cleanup="0"',
       cwd     => '/tmp',
       user    => 'root',
       group   => 'root',
