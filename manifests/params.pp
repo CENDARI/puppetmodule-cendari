@@ -42,7 +42,7 @@ class cendari::params {
   $virtuoso_host               = 'localhost'
   $litef_user_group            = undef
   $litef_apikey                = undef
-  $litef_conductor_plugins     = 'conductor.plugins.DocumentIndexerPlugin,conductor.plugins.VirtuosoFeederPlugin,conductor.plugins.ElasticFeederPlugin'
+  $litef_conductor_plugins     = 'conductor.plugins.DocumentIndexerPlugin,conductor.plugins.NerdPlugin,conductor.plugins.VirtuosoFeederPlugin,conductor.plugins.ElasticFeederPlugin'
 
   $notes_pgsqldb               = 'notes'
   $notes_pgsqluser             = 'notes'
