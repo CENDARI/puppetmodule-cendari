@@ -1,8 +1,8 @@
 [VOS]
 Description = Virtuoso
 Driver = /usr/lib/odbc/virtodbcu_r.so
-Server = <%= scope.lookupvar('::profiles::cendari_frontoffice::virtuoso_host') %>
-address = <%= scope.lookupvar('::profiles::cendari_frontoffice::virtuoso_host') %>:1111
+Server = <%= scope.lookupvar('::cendari::virtuoso_host') %>
+address = <%= scope.lookupvar('::cendari::virtuoso_host') %>:1111
 Port = 1111
 UserName = dba
 Locale = en.UTF-8
