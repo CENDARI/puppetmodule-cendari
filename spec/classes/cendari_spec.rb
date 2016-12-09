@@ -17,10 +17,10 @@ describe 'cendari' do
       is_expected.to contain_class('cendari::repository')
     end
     it do
-      is_expected.to contain_apt__source('cendari_deb_repository')
+      is_expected.to contain_apt__source('dariah_apt_repository')
     end
     it do
-      is_expected.to contain_exec('update_cendari_deb_repository')
+      is_expected.to contain_exec('update_dariah_apt_repository')
     end
   end
 

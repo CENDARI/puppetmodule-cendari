@@ -4,10 +4,10 @@ class cendari::params {
 
   $adminmail      = 'root@localhost'
   $manage_repo    = false
-  $repo_component = 'cendari_prod'
-  $repo_url       = 'https://sandbox.cendari.dariah.eu/packages'
-  $repo_key_url   = 'https://sandbox.cendari.dariah.eu/cendari_repository.asc'
-  $repo_key_id    = 'F00A281A8DD528C1EBDB0D849985BE2057446003'
+  $repo_component = 'releases'
+  $repo_url       = 'https://ci.de.dariah.eu/packages'
+  $repo_key_url   = 'https://ci.de.dariah.eu/packages/repository.asc'
+  $repo_key_id    = 'F5022AB21CEE8C25742856B5E5AD162A5F5732EE'
   $variant        = undef
 
   $atom_url                    = undef
