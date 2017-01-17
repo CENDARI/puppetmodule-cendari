@@ -5,16 +5,19 @@ class cendari::repository inherits cendari {
   # add ubuntu repository if on trusty (repo doesn't have other distros)
   if ($::osfamily == 'Debian') and ($::lsbdistcodename == 'trusty') {
     apt::source { 'dariah_apt_repository':
-      comment           => 'DARIAH repository',
-      location          => $::cendari::repo_url,
-      release           => $::lsbdistcodename,
-      repos             => $::cendari::repo_component,
-      required_packages => 'debian-keyring debian-archive-keyring',
-      key               => $::cendari::repo_key_id,
-      key_source        => $::cendari::repo_key_url,
-      include_src       => false,
-      include_deb       => true,
-      architecture      => 'amd64',
+      comment      => 'DARIAH repository',
+      location     => $::cendari::repo_url,
+      release      => $::lsbdistcodename,
+      repos        => $::cendari::repo_component,
+      architecture => 'amd64',
+      key          => {
+        'source' => $::cendari::repo_key_url,
+        'id'     => $::cendari::repo_key_id,
+      },
+      include      => {
+        'src' => false,
+        'deb' => true,
+      },
     }
     # this exec runs only, if the precondition is not satisfied and than fails
     # the precondition is a successful update of the dariah repos resources
